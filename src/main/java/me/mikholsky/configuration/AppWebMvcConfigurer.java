@@ -65,10 +65,10 @@ public class AppWebMvcConfigurer implements WebMvcConfigurer, EnvironmentAware, 
 			Objects.requireNonNull(env.getProperty("hibernate.pool_size"))
 		);
 
-		properties.setProperty(
-			Environment.CURRENT_SESSION_CONTEXT_CLASS,
-			Objects.requireNonNull(env.getProperty("hibernate.current_session_context_class"))
-		);
+//		properties.setProperty(
+//			Environment.CURRENT_SESSION_CONTEXT_CLASS,
+//			Objects.requireNonNull(env.getProperty("hibernate.current_session_context_class"))
+//		);
 
 		return properties;
 	}
