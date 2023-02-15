@@ -7,13 +7,16 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.http.CacheControl;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
+import java.time.Duration;
 import java.util.Objects;
 
 @Configuration
@@ -64,9 +67,6 @@ public class AppWebMvcConfigurer implements WebMvcConfigurer {
 
 		viewResolver.setTemplateEngine(templateEngine());
 		viewResolver.setOrder(1);
-//		viewResolver.setViewNames(
-//			new String[]{Objects.requireNonNull(env.getProperty("templateResolver.suffix"))}
-//		);
 
 		return viewResolver;
 	}
