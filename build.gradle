@@ -16,14 +16,30 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.springframework/spring-webmvc
     implementation 'org.springframework:spring-webmvc:6.0.4'
-    // https://mvnrepository.com/artifact/org.hibernate/hibernate-search-orm
-    implementation 'org.hibernate:hibernate-search-orm:5.11.12.Final'
+    // https://mvnrepository.com/artifact/org.springframework/spring-orm
+    implementation 'org.springframework:spring-orm:6.0.4'
+
+
+    // https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core
+    implementation 'org.hibernate.orm:hibernate-core:6.0.0.Final'
+    // https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator
+    implementation 'org.hibernate.validator:hibernate-validator:8.0.0.Final'
+//     https://mvnrepository.com/artifact/org.hibernate/hibernate-search-orm
+//    implementation 'org.hibernate:hibernate-search-orm:5.11.12.Final'
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager
+    implementation 'org.hibernate:hibernate-entitymanager:5.6.15.Final'
+
+
     // https://mvnrepository.com/artifact/org.postgresql/postgresql
     implementation 'org.postgresql:postgresql:42.5.3'
+
+
     // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf
     implementation 'org.thymeleaf:thymeleaf:3.0.15.RELEASE'
     // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring6
     implementation 'org.thymeleaf:thymeleaf-spring6:3.1.1.RELEASE'
+
+
     // https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api
     compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
 
