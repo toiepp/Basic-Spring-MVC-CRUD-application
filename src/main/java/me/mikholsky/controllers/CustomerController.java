@@ -3,8 +3,10 @@ package me.mikholsky.controllers;
 import me.mikholsky.models.Customer;
 import me.mikholsky.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -15,6 +17,11 @@ public class CustomerController {
 	@Autowired
 	public void setCustomerService(CustomerService customerService) {
 		this.customerService = customerService;
+	}
+
+	@InitBinder
+	public void init(WebDataBinder webDataBinder) {
+		webDataBinder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
 	}
 
 	@GetMapping("/all-page")
