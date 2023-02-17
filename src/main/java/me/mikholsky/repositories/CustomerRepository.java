@@ -1,9 +1,8 @@
-package me.mikholsky.repository;
+package me.mikholsky.repositories;
 
 import me.mikholsky.models.Customer;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -22,14 +21,10 @@ public class CustomerRepository {
 		sessionFactory.getCurrentSession().persist(customer);
 	}
 
-	public void delete(int id) {
+	public void delete(Integer id) {
 		Session session = sessionFactory.getCurrentSession();
 
-		Query<Customer> query = session.createQuery("from Customer where id=:id", Customer.class);
-
-		query.setParameter("id", id);
-
-		Customer toDelete = query.getSingleResult();
+		Customer toDelete = session.find(Customer.class, id);
 
 		session.remove(toDelete);
 	}
@@ -38,9 +33,17 @@ public class CustomerRepository {
 		sessionFactory.getCurrentSession().remove(customer);
 	}
 
+	public Customer update(Customer customer) {
+		return sessionFactory.getCurrentSession().merge(customer);
+	}
+
+	public Customer findById(Integer id) {
+		return sessionFactory.getCurrentSession().find(Customer.class, id);
+	}
+
 	public List<Customer> getAll() {
-		return sessionFactory.getCurrentSession()
-							 .createQuery("from Customer", Customer.class)
-							 .getResultList();
+		Session session = sessionFactory.getCurrentSession();
+
+		return session.createQuery("from Customer", Customer.class).getResultList();
 	}
 }

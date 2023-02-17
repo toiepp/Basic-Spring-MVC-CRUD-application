@@ -1,10 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>All customers</title>
+  <style>
+    * {
+      box-sizing: content-box;
+      margin:     0;
+      padding:    0;
+    }
+
+    body {
+      font-family: "Source Code Pro", sans-serif;
+    }
+
+    .info-box {
+      padding: 30px;
+    }
+
+    .customer_box {
+      display: inline-block;
+      width:   content-box;
+      padding: 10px 20px;
+      border:  1px solid black;
+      margin:  5px;
+    }
+
+    .customer_box span {
+      font-weight: bold;
+    }
+
+    /*.buttons {*/
+    /*  display:         flex;*/
+    /*  justify-content: space-between;*/
+    /*  margin-bottom:   10px;*/
+    /*}*/
+
+    #no-customer-message {
+      margin:          0;
+      display:         flex;
+      height:          100%;
+      width:           100%;
+      position:        absolute;
+      justify-content: center;
+      align-items:     center;
+      font-size:       80px;
+      font-weight:     bold;
+    }
+
+    #no-customer-message a {
+      text-decoration: none;
+    }
+
+    .button_box {
+      margin-top:      10px;
+      display:         flex;
+      flex-direction:  row;
+      justify-content: space-between;
+      align-content:   center;
+    }
+  </style>
 </head>
 <body>
-$END$
+<p id="no-customer-message" th:if="${#lists.size(listOfCustomers) == 0}">
+  <a th:href="@{/customers/new-page}">There is no customers yet! Add one.</a>
+</p>
+<div th:if="${#lists.size(listOfCustomers) != 0}" class="info-box">
+  <p><a th:href="@{/customers/new-page}">Register new customer.</a></p>
+  <div class="customer_box" th:each="c : ${listOfCustomers}">
+    <p>First name: <span th:text="${c.firstName}"></span></p>
+    <p>Last name: <span th:text="${c.lastName}"></span></p>
+    <p>Email: <span th:text="${c.email}"></span></p>
+
+    <div class="button_box">
+      <form class="button" action="#" th:action="@{/customers/delete}" th:object="${c}" method="post">
+        <input type="hidden" name="id" th:value="${c.id}"/>
+        <input type="submit" value="Delete">
+      </form>
+      <form class="button" action="#" th:action="@{/customers/update-page}" th:object="${c}" method="get">
+        <input type="hidden" name="id" th:value="${c.id}">
+        <input type="submit" value="Update">
+      </form>
+    </div>
+  </div>
+</div>
 </body>
 </html>
