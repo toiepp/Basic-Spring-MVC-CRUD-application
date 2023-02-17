@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import me.mikholsky.validation.required.Required;
+
+import java.lang.annotation.Retention;
 
 @Entity
 @Table(name = "customers")
@@ -18,13 +21,13 @@ public class Customer {
 	private String firstName;
 
 	@Column(name = "last_name")
-	@NotNull(message = "is required")
-	@Size(min = 2 	, max = 100)
+	@Required
+	@Size(min = 2, max = 100)
 	private String lastName;
 
 	@Column(name = "email")
 	@Email
-	@NotNull(message = "is required")
+	@Required
 	private String email;
 
 	public Customer() {
