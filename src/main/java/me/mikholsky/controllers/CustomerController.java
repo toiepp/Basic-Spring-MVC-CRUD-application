@@ -1,13 +1,17 @@
 package me.mikholsky.controllers;
 
+import jakarta.validation.Valid;
 import me.mikholsky.models.Customer;
 import me.mikholsky.services.CustomerService;
+import net.bytebuddy.matcher.StringMatcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/customers")
@@ -49,9 +53,19 @@ public class CustomerController {
 		return "find-customer-page";
 	}
 
+	/* Не знаю почему, но когда я не указываю в скобках в @ModelAttribute
+	* название сущности на прямую, то ничего не работает */
 	@PostMapping("/save")
-	public String saveNewCustomer(@ModelAttribute Customer newCustomer) {
+	public String saveNewCustomer(@ModelAttribute("newCustomer") @Valid Customer newCustomer,
+								  BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			bindingResult.getAllErrors()
+						 .forEach(System.out::println);
+			return "register-new-customer-form";
+		}
+
 		customerService.save(newCustomer);
+
 		return "redirect:/customers/all-page";
 	}
 
@@ -62,7 +76,13 @@ public class CustomerController {
 	}
 
 	@PostMapping("/update")
-	public String updateCustomer(@ModelAttribute("customerToUpdate") Customer customer) {
+	public String updateCustomer(@ModelAttribute("customerToUpdate") @Valid Customer customer,
+								 BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			bindingResult.getAllErrors().forEach(System.out::println);
+			return "update-customer";
+		}
+
 		customerService.update(customer);
 		return "redirect:/customers/all-page";
 	}

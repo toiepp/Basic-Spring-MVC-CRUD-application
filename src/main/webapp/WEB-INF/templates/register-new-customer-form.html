@@ -4,17 +4,33 @@
 <head>
   <meta charset="UTF-8">
   <title>Register new one</title>
+  <style>
+    body {
+      font-family: "Source Code Pro", sans-serif;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
 </head>
 <body>
 <form action="#" th:action="@{/customers/save}" th:object="${newCustomer}" method="post">
   First name: <input type="text" th:field="*{firstName}">
   <br><br>
+
   Last name: <input type="text" th:field="*{lastName}">
+  <span th:if="${#fields.hasErrors('lastName')}" th:text="${{#fields.errors('lastName')}}" class="error"></span>
   <br><br>
+
   Email: <input type="text" th:field="*{email}">
+  <span th:if="${#fields.hasErrors('email')}" th:text="${{#fields.errors('email')}}" class="error"></span>
   <br><br>
+
   <input th:if="${newCustomer.id == null}" type="submit" value="Register">
   <input th:unless="${newCustomer.id == null}" type="submit" value="Register">
 </form>
+<p><a th:href="@{/customers/all-page}">Back to all customers.</a></p>
+
 </body>
 </html>
