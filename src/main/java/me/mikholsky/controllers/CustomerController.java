@@ -13,6 +13,11 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
 @Controller
 @RequestMapping("/customers")
 public class CustomerController {
@@ -54,13 +59,11 @@ public class CustomerController {
 	}
 
 	/* Не знаю почему, но когда я не указываю в скобках в @ModelAttribute
-	* название сущности на прямую, то ничего не работает */
+	 * название сущности на прямую, то ничего не работает */
 	@PostMapping("/save")
 	public String saveNewCustomer(@ModelAttribute("newCustomer") @Valid Customer newCustomer,
 								  BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
-			bindingResult.getAllErrors()
-						 .forEach(System.out::println);
 			return "register-new-customer-form";
 		}
 
@@ -79,11 +82,39 @@ public class CustomerController {
 	public String updateCustomer(@ModelAttribute("customerToUpdate") @Valid Customer customer,
 								 BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
-			bindingResult.getAllErrors().forEach(System.out::println);
 			return "update-customer";
 		}
 
 		customerService.update(customer);
 		return "redirect:/customers/all-page";
+	}
+
+	@PostMapping("/find")
+	public String findCustomers(@RequestParam(value = "firstName", required = false) String firstName,
+								@RequestParam(value = "lastName", required = false) String lastName,
+								@RequestParam(value = "email", required = false) String email,
+								Model model) {
+		List<Customer> matchedCustomers = customerService.getAll().stream()
+														 .filter((customer) -> {
+															 if (firstName == null) return true;
+															 return customer.getFirstName()
+																			.toLowerCase()
+																			.contains(firstName.toLowerCase());
+														 })
+														 .filter((customer) -> {
+															 if (lastName == null) return true;
+															 return customer.getLastName()
+																			.toLowerCase()
+																			.contains(lastName.toLowerCase());
+														 })
+														 .filter(customer -> {
+															 if (email == null) return true;
+															 return customer.getEmail()
+																			.toLowerCase()
+																			.contains(email.toLowerCase());
+														 }).toList();
+
+		model.addAttribute("foundCustomers", matchedCustomers);
+		return "found-customers";
 	}
 }

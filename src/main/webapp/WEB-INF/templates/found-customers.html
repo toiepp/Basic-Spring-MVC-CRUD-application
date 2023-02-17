@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="customer_box" th:each="c : ${foundCustomers}">
+  <p>First name: <span th:text="${c.firstName}"></span></p>
+  <p>Last name: <span th:text="${c.lastName}"></span></p>
+  <p>Email: <span th:text="${c.email}"></span></p>
+
+  <div class="button_box">
+    <form class="button" action="#" th:action="@{/customers/delete}" th:object="${c}" method="post">
+      <input type="hidden" name="id" th:value="${c.id}"/>
+      <input type="submit" value="Delete">
+    </form>
+    <form class="button" action="#" th:action="@{/customers/update-page}" th:object="${c}" method="get">
+      <input type="hidden" name="id" th:value="${c.id}">
+      <input type="submit" value="Update">
+    </form>
+  </div>
+</body>
+</html>
