@@ -2,7 +2,7 @@
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-<head>
+<head lang="ru;en">
   <meta charset="UTF-8">
   <title>All customers</title>
   <style>
@@ -68,19 +68,35 @@
   <a th:href="@{/customers/new-page}">There is no customers yet! Add one.</a>
 </p>
 <div th:if="${#lists.size(listOfCustomers) != 0}" class="info-box">
+  <div style="display: inline-block; border: 1px dashed black; margin: 10px; padding: 5px;">
+    <form action="#" th:action="@{/customers/all-page}">
+      Sort by:
+      <select name="orderBy">
+        <option th:each="field : ${fieldsToOrderBy}" th:value="${field.value}" th:text="${field.key}"
+                th:selected="${field.value} == ${{param.orderBy}}"></option>
+      </select>
+      <br>
+      Order by:
+      <select name="orderType">
+        <option th:each="type: ${orderTypes}" th:value="${type.value}" th:text="${type.key}"
+                th:selected="${type.value} == ${{param.orderType}}"></option>
+      </select>
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
   <p><a th:href="@{/customers/new-page}">Register new customer.</a></p>
-  <div class="customer_box" th:each="c : ${listOfCustomers}">
-    <p>First name: <span th:text="${c.firstName}"></span></p>
-    <p>Last name: <span th:text="${c.lastName}"></span></p>
-    <p>Email: <span th:text="${c.email}"></span></p>
-
+  <div class="customer_box" th:each="c : ${listOfCustomers}" th:object="${c}">
+    <p>First name: <span th:text="*{firstName}"></span></p>
+    <p>Last name: <span th:text="*{lastName}"></span></p>
+    <p>Email: <span th:text="*{email}"></span></p>
     <div class="button_box">
       <form class="button" action="#" th:action="@{/customers/delete}" th:object="${c}" method="post">
-        <input type="hidden" name="id" th:value="${c.id}"/>
+        <input type="hidden" name="id" th:value="*{id}"/>
         <input type="submit" value="Delete">
       </form>
       <form class="button" action="#" th:action="@{/customers/update-page}" th:object="${c}" method="get">
-        <input type="hidden" name="id" th:value="${c.id}">
+        <input type="hidden" name="id" th:value="*{id}">
         <input type="submit" value="Update">
       </form>
     </div>

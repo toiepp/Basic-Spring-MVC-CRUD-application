@@ -3,7 +3,6 @@ package me.mikholsky.controllers;
 import jakarta.validation.Valid;
 import me.mikholsky.models.Customer;
 import me.mikholsky.services.CustomerService;
-import net.bytebuddy.matcher.StringMatcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
@@ -11,17 +10,28 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
+import java.util.*;
 
 @Controller
 @RequestMapping("/customers")
 public class CustomerController {
 	private CustomerService customerService;
+	private final Map<String, String> fieldToOrderBy;
+	private final Map<String, String> orderTypes;
+
+	{
+		fieldToOrderBy = new LinkedHashMap<>();
+
+		fieldToOrderBy.put("First name", "firstName");
+		fieldToOrderBy.put("Last name", "lastName");
+		fieldToOrderBy.put("Email", "email");
+
+		orderTypes = new LinkedHashMap<>();
+
+		orderTypes.put("Ascending", "asc");
+		orderTypes.put("Descending", "desc");
+	}
 
 	@Autowired
 	public void setCustomerService(CustomerService customerService) {
@@ -30,12 +40,22 @@ public class CustomerController {
 
 	@InitBinder
 	public void init(WebDataBinder webDataBinder) {
-		webDataBinder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
+		webDataBinder.registerCustomEditor(String.class, new StringTrimmerEditor(false));
 	}
 
+	/* sorting by: name, last name, email */
 	@GetMapping("/all-page")
-	public String showListOfCustomersPage(Model model) {
-		model.addAttribute("listOfCustomers", customerService.getAll());
+	public String showListOfCustomersPage(
+		@RequestParam(value = "orderBy", required = false, defaultValue = "") String orderBy,
+		@RequestParam(value = "orderType", required = false, defaultValue = "") String orderType,
+		Model model) {
+
+		List<Customer> queryResult = customerService.getAll(orderBy, orderType);
+
+		model.addAttribute("fieldsToOrderBy", fieldToOrderBy);
+		model.addAttribute("orderTypes", orderTypes);
+
+		model.addAttribute("listOfCustomers", queryResult);
 
 		return "list-of-customers";
 	}
