@@ -40,15 +40,21 @@ public class CustomerController {
 
 	@InitBinder
 	public void init(WebDataBinder webDataBinder) {
-		webDataBinder.registerCustomEditor(String.class, new StringTrimmerEditor(false));
+		webDataBinder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
 	}
 
 	/* sorting by: name, last name, email */
 	@GetMapping("/all-page")
 	public String showListOfCustomersPage(
-		@RequestParam(value = "orderBy", required = false, defaultValue = "") String orderBy,
-		@RequestParam(value = "orderType", required = false, defaultValue = "") String orderType,
+		@RequestParam(value = "orderBy", required = false) String orderBy,
+		@RequestParam(value = "orderType", required = false) String orderType,
 		Model model) {
+		if (orderBy == null) {
+			orderBy = "";
+		}
+		if (orderType == null) {
+			orderType = "";
+		}
 
 		List<Customer> queryResult = customerService.getAll(orderBy, orderType);
 
