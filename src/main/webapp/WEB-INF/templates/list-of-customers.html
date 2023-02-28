@@ -86,6 +86,7 @@
     </form>
   </div>
   <p><a th:href="@{/customers/new-page}">Register new customer.</a></p>
+  <p><a th:href="@{/customers/find-page}">Find customers.</a></p>
   <div class="customer_box" th:each="c : ${listOfCustomers}" th:object="${c}">
     <p>First name: <span th:text="*{firstName}"></span></p>
     <p>Last name: <span th:text="*{lastName}"></span></p>
