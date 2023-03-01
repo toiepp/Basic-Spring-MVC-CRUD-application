@@ -43,6 +43,9 @@ dependencies {
     // https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api
     compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
 
+    // AOP
+    // https://mvnrepository.com/artifact/org.aspectj/aspectjweaver
+    runtimeOnly 'org.aspectj:aspectjweaver:1.9.19'
 }
 
 test {
