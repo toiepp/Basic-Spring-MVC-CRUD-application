@@ -45,7 +45,7 @@ dependencies {
 
     // AOP
     // https://mvnrepository.com/artifact/org.aspectj/aspectjweaver
-    compileOnly 'org.aspectj:aspectjweaver:1.9.19'
+    implementation 'org.aspectj:aspectjweaver:1.9.9.1'
 }
 
 test {
