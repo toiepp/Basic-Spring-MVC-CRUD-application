@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Gradle : me.mikholsky : spring-mvc-crud-app-gradle-1.0-SNAPSHOT.war" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc7e5dfe-d645-4ab5-92fa-c2d15f9bfb97" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/aspects/RepositoryLoggingAspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/aspects/RepositoryLoggingAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/aspects/RepositoryLoggingAspect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/configuration/AppWebMvcConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/configuration/AppWebMvcConfigurer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +31,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand />
@@ -73,10 +80,10 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/mikholskiyivan/Documents/studying/spring-mvc-crud-app-gradle/src/main/resources/templates&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
@@ -89,7 +96,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.34084508&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.General&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;1f356d165b81c890f0e54b2dc2b967f9&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -120,7 +127,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 10.0.27">
-    <configuration name="TestDbConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="TestDbConnection" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TestDbConnection" />
       <module name="spring-mvc-crud-app-gradle.test" />
       <method v="2">
@@ -148,7 +155,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="6da46d8d-1d24-4039-9582-ea96abe021ed" />
+        <option name="BASE_DIRECTORY_NAME" value="6c4db9ff-505c-4f0e-a3d6-7818d2d08149" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -156,7 +163,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="40761" />
+        <option name="DEBUG_PORT" value="38927" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -314,14 +321,9 @@
     </configuration>
     <list>
       <item itemvalue="Application.TestDbConnection" />
-      <item itemvalue="Tomcat Server.Tomcat 10.0.27" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.54" />
+      <item itemvalue="Tomcat Server.Tomcat 10.0.27" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.TestDbConnection" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringBeansView">
@@ -340,7 +342,9 @@
       <workItem from="1677666251697" duration="4747000" />
       <workItem from="1677674294216" duration="1077000" />
       <workItem from="1677675385274" duration="43000" />
-      <workItem from="1677675438362" duration="16000" />
+      <workItem from="1677675438362" duration="3160000" />
+      <workItem from="1677678881713" duration="121000" />
+      <workItem from="1677679016427" duration="1106000" />
     </task>
     <servers />
   </component>
