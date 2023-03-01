@@ -9,8 +9,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * If field in HTML form has to be not empty,
- * then mark it by this annotation*/
+ * For annotating field that have to be filled in HTML form */
 @Constraint(validatedBy = RequiredConstrainValidator.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})
