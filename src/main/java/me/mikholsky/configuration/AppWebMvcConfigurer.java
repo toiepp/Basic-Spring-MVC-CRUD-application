@@ -10,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.lang.NonNull;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -34,12 +35,12 @@ public class AppWebMvcConfigurer implements WebMvcConfigurer, EnvironmentAware, 
 	private org.springframework.core.env.Environment env;
 
 	@Override
-	public void setEnvironment(org.springframework.core.env.Environment environment) {
+	public void setEnvironment(@NonNull org.springframework.core.env.Environment environment) {
 		this.env = environment;
 	}
 
 	@Override
-	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+	public void setApplicationContext(@NonNull ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
 	}
 
@@ -64,11 +65,6 @@ public class AppWebMvcConfigurer implements WebMvcConfigurer, EnvironmentAware, 
 			Environment.POOL_SIZE,
 			Objects.requireNonNull(env.getProperty("hibernate.pool_size"))
 		);
-
-//		properties.setProperty(
-//			Environment.CURRENT_SESSION_CONTEXT_CLASS,
-//			Objects.requireNonNull(env.getProperty("hibernate.current_session_context_class"))
-//		);
 
 		return properties;
 	}
