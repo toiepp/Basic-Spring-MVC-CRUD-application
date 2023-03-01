@@ -17,8 +17,9 @@ public class CustomerRepository {
 		this.sessionFactory = sessionFactory;
 	}
 
-	public void save(Customer customer) {
+	public Customer save(Customer customer) {
 		sessionFactory.getCurrentSession().persist(customer);
+		return customer;
 	}
 
 	public void delete(Integer id) {
