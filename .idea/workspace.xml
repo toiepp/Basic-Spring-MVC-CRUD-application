@@ -10,10 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc7e5dfe-d645-4ab5-92fa-c2d15f9bfb97" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/aspects/RepositoryLoggingAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/aspects/RepositoryLoggingAspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/repositories/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/repositories/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/services/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/services/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/aspects/ServiceLoggingAspect.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -342,7 +339,7 @@
       <workItem from="1677675438362" duration="3160000" />
       <workItem from="1677678881713" duration="121000" />
       <workItem from="1677679016427" duration="55297000" />
-      <workItem from="1677833029703" duration="4738000" />
+      <workItem from="1677833029703" duration="5089000" />
     </task>
     <servers />
   </component>
