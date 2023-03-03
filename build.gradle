@@ -18,6 +18,11 @@ dependencies {
     implementation 'org.springframework:spring-webmvc:6.0.4'
     // https://mvnrepository.com/artifact/org.springframework/spring-orm
     implementation 'org.springframework:spring-orm:6.0.4'
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-config
+    implementation 'org.springframework.security:spring-security-config:6.0.2'
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-web
+    implementation 'org.springframework.security:spring-security-web:6.0.2'
+
 
 
     // https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core
