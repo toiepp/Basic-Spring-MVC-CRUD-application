@@ -20,8 +20,9 @@ public class CustomerService {
 		this.customerRepository = customerRepository;
 	}
 
-	public void save(Customer customer) {
+	public Customer save(Customer customer) {
 		customerRepository.save(customer);
+		return customer;
 	}
 
 	public Customer findById(Integer id) {
