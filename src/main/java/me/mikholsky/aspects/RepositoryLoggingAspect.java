@@ -1,32 +1,26 @@
 package me.mikholsky.aspects;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import org.thymeleaf.spring6.processor.SpringErrorClassTagProcessor;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Stream;
+import java.util.Objects;
+import java.util.logging.Logger;
 
 @Aspect
 @Component
 @Order(1)
 public class RepositoryLoggingAspect {
-	private String getCurrentTime() {
-		return DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm:ss.SS").format(LocalDateTime.now());
-	}
+	private final static Logger logger = Logger.getLogger(RepositoryLoggingAspect.class.getName());
 
-	private String printAllArguments(Object[] args) {
+	private String mergeArgsToString(JoinPoint joinPoint) {
 		StringBuilder sb = new StringBuilder();
-		Stream.of(args).forEach(s -> sb.append(s).append(' '));
-		return sb.toString();
+
+		return String.join(", ",
+						   Arrays.stream(joinPoint.getArgs()).map(Objects::toString).toList());
 	}
 
 	/**
@@ -42,14 +36,34 @@ public class RepositoryLoggingAspect {
 
 	@After("forAllMethodsPointCut() && excludeSetterMethodsPointcut()")
 	public void afterAllMethodsAdvice(JoinPoint joinPoint) {
-		System.out.println(getCurrentTime() + " Execution of [" + joinPoint.getSignature().toLongString() +
-							   "] with such arguments {" + printAllArguments(joinPoint.getArgs()) + "}");
+		logger.info(String.format("Execution of [%s] with such arguments {%s}",
+								  joinPoint.getSignature().toShortString(),
+								  mergeArgsToString(joinPoint)));
 	}
 
 	@AfterReturning(value = "execution(public !void me.mikholsky.repositories.*.*(..))",
 					returning = "result")
 	public void afterReturningMethodAdvice(JoinPoint joinPoint, Object result) {
-		System.out.println(getCurrentTime() + " Method [" + joinPoint.getSignature().toLongString() + "] returned {" + result + "}");
+		logger.info(String.format("Method [%s] returned {%s}",
+								  joinPoint.getSignature().toShortString(),
+								  result));
+	}
 
+	@Around(value = "execution(* me.mikholsky.repositories.*.*(..)) && excludeSetterMethodsPointcut()",
+			argNames = "proceedingJoinPoint")
+	public Object aroundSaveAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+		long s = System.currentTimeMillis();
+
+		Object result = proceedingJoinPoint.proceed();
+
+		long e = System.currentTimeMillis();
+
+		logger.info(String.format(
+			"Execution duration of [%s] is %dms",
+			proceedingJoinPoint.getSignature().toShortString(),
+			e - s
+		));
+
+		return result;
 	}
 }
