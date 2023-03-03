@@ -51,19 +51,29 @@ public class RepositoryLoggingAspect {
 
 	@Around(value = "execution(* me.mikholsky.repositories.*.*(..)) && excludeSetterMethodsPointcut()",
 			argNames = "proceedingJoinPoint")
-	public Object aroundSaveAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-		long s = System.currentTimeMillis();
+	public Object measureExecutionDuration(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+		Long start = System.currentTimeMillis();
 
 		Object result = proceedingJoinPoint.proceed();
 
-		long e = System.currentTimeMillis();
+		Long end = System.currentTimeMillis();
 
-		logger.info(String.format(
-			"Execution duration of [%s] is %dms",
-			proceedingJoinPoint.getSignature().toShortString(),
-			e - s
-		));
+		logger.info(String.format("Execution time of [%s] is %dms",
+								  proceedingJoinPoint.getSignature().toShortString(),
+								  (end - start)));
 
 		return result;
+	}
+
+	@Around(value = "execution(* me.mikholsky.repositories.*.*(..)) && excludeSetterMethodsPointcut()")
+	public Object logException(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+		try {
+			return proceedingJoinPoint.proceed();
+		} catch (Throwable e) {
+			logger.warning(String.format("Exception in [%s] has been thrown: [%s]",
+										 proceedingJoinPoint.getSignature().toShortString(),
+										 e));
+			throw e;
+		}
 	}
 }
