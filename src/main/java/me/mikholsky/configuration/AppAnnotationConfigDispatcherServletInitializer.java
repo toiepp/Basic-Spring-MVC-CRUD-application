@@ -1,5 +1,6 @@
 package me.mikholsky.configuration;
 
+import me.mikholsky.configuration.security.WebSecurityConfiguration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class AppAnnotationConfigDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -10,7 +11,8 @@ public class AppAnnotationConfigDispatcherServletInitializer extends AbstractAnn
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class[]{AppWebMvcConfigurer.class};
+		return new Class[]{AppWebMvcConfigurer.class,
+			WebSecurityConfiguration.class};
 	}
 
 	@Override

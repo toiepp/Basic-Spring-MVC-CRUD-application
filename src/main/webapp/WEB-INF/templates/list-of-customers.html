@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-<head lang="ru;en">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head lang="en">
   <meta charset="UTF-8">
   <title>All customers</title>
   <style>
@@ -64,6 +65,9 @@
   </style>
 </head>
 <body>
+<p>User: <span sec:authentication="name">NOT FOUND</span></p>
+<p>Authorities: <span sec:authentication="principal.authorities">NOT FOUND</span></p>
+
 <p id="no-customer-message" th:if="${#lists.size(listOfCustomers) == 0}">
   <a th:href="@{/customers/new-page}">There is no customers yet! Add one.</a>
 </p>

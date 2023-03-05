@@ -5,6 +5,8 @@ import me.mikholsky.models.Customer;
 import me.mikholsky.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -49,6 +51,10 @@ public class CustomerController {
 		@RequestParam(value = "orderBy", required = false) String orderBy,
 		@RequestParam(value = "orderType", required = false) String orderType,
 		Model model) {
+
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		authentication.getAuthorities().forEach(System.out::println);
+
 		if (orderBy == null) {
 			orderBy = "";
 		}
