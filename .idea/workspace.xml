@@ -10,19 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc7e5dfe-d645-4ab5-92fa-c2d15f9bfb97" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/configuration/security/SecurityWebApplicationInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/configuration/security/WebSecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/controllers/AuthenticationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/controllers/ErrorsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/error-pages/403-forbidden.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/error-pages/404-not-found.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/layouts/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login-page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/error-pages/405-not-allowed.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/configuration/AppAnnotationConfigDispatcherServletInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/configuration/AppAnnotationConfigDispatcherServletInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/configuration/WebSecurityConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/configuration/security/WebSecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/configuration/security/WebSecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/controllers/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/controllers/ErrorsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/controllers/ErrorsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/list-of-customers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/list-of-customers.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,8 +64,8 @@
       <list>
         <option value="CSS File" />
         <option value="AnnotationType" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -372,7 +365,8 @@
       <workItem from="1677833029703" duration="19775000" />
       <workItem from="1677857067102" duration="10000" />
       <workItem from="1678021949479" duration="236000" />
-      <workItem from="1678030597472" duration="7487000" />
+      <workItem from="1678030597472" duration="8065000" />
+      <workItem from="1678103751085" duration="9852000" />
     </task>
     <servers />
   </component>

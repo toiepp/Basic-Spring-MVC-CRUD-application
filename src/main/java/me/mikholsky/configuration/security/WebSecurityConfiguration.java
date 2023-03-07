@@ -37,17 +37,14 @@ public class WebSecurityConfiguration {
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+		http.httpBasic();
+
 		http.authorizeHttpRequests(authorize -> authorize
-			.requestMatchers("/", "/authenticate/**").permitAll()
-			.requestMatchers("/error/**").authenticated()
-			.requestMatchers("/customers/delete", "/customers/update-page").hasRole("ADMIN")
-			.requestMatchers("/customers/find-page", "/customers/new-page").hasAnyRole("ADMIN", "MANAGER")
-			.requestMatchers("/customers/**").hasRole("EMPLOYEE"));
-
-		http.exceptionHandling(exceptionHandling ->
-								   exceptionHandling
-									   .accessDeniedPage("/error/403"));
-
+			.requestMatchers("/", "/authenticate/**", "/error/**", "/logging/**").permitAll()
+			.requestMatchers("/customers/update-page", "/customers/delete", "/customers/update").hasRole("ADMIN")
+			.requestMatchers("/customers/all-page").authenticated()
+			.requestMatchers("/customers/**").hasAnyRole("ADMIN", "MANAGER")
+		);
 
 		http.formLogin(formLogin -> formLogin
 			.loginPage("/authenticate/login")

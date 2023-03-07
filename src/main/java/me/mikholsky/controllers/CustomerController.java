@@ -13,8 +13,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
+/** <strong>GET</strong> /all-page /new-page /update-page /find-page <br>
+*  <strong>POST</strong> /save /update /delete /find
+* */
 @Controller
 @RequestMapping("/customers")
 public class CustomerController {

@@ -62,12 +62,20 @@
       justify-content: space-between;
       align-content:   center;
     }
+
+    .logout-btn {
+      display:         flex;
+      justify-content: end;
+    }
   </style>
 </head>
 <body>
-<p>User: <span sec:authentication="name">NOT FOUND</span></p>
-<p>Authorities: <span sec:authentication="principal.authorities">NOT FOUND</span></p>
-
+<div class="logout-btn">
+  <form action="#" th:action="@{/authenticate/login}">
+    <input type="hidden" name="logout" th:value="${true}">
+    <input type="submit" value="Log out">
+  </form>
+</div>
 <p id="no-customer-message" th:if="${#lists.size(listOfCustomers) == 0}">
   <a th:href="@{/customers/new-page}">There is no customers yet! Add one.</a>
 </p>
