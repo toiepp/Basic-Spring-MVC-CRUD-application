@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.43">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>8159</IntrospectionStateNumber>
+      <IntrospectionStateNumber>8581</IntrospectionStateNumber>
       <ServerVersion>14.2</ServerVersion>
       <StartupTime>1677488815</StartupTime>
       <TimeZones>true ACDT
@@ -1429,7 +1429,7 @@ false posixrules
 14394||10|C|G
 14394||-9223372036854775808|U|G
 14394||10|U|G</Grants>
-      <IntrospectionStateNumber>8159</IntrospectionStateNumber>
+      <IntrospectionStateNumber>8581</IntrospectionStateNumber>
       <ObjectId>14760</ObjectId>
       <Relations>sequence|table|40589|40590|1
 </Relations>
@@ -4874,7 +4874,7 @@ false posixrules
     <schema id="274" parent="10" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>8159</IntrospectionStateNumber>
+      <IntrospectionStateNumber>8581</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>527</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -4885,13 +4885,48 @@ false posixrules
       <StateNumber>8049</StateNumber>
       <OwnerName>mikholskiy</OwnerName>
     </sequence>
-    <table id="276" parent="274" name="customers">
+    <table id="276" parent="274" name="authorities">
+      <ObjectId>49189</ObjectId>
+      <StateNumber>8578</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>mikholskiy</OwnerName>
+    </table>
+    <table id="277" parent="274" name="customers">
       <ObjectId>40590</ObjectId>
       <StateNumber>8049</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>mikholskiy</OwnerName>
     </table>
-    <column id="277" parent="276" name="id">
+    <table id="278" parent="274" name="users">
+      <ObjectId>49183</ObjectId>
+      <StateNumber>8578</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>mikholskiy</OwnerName>
+    </table>
+    <column id="279" parent="276" name="username">
+      <DataType>varchar(50)|0s</DataType>
+      <Position>1</Position>
+      <StateNumber>8578</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="280" parent="276" name="authority">
+      <DataType>varchar(50)|0s</DataType>
+      <Position>2</Position>
+      <StateNumber>8578</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <foreign-key id="281" parent="276" name="authorities_username_fkey">
+      <ColNames>username</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>49192</ObjectId>
+      <RefColNames>username</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>8578</StateNumber>
+      <RefTableId>49183</RefTableId>
+      <RefTableName>users</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <column id="282" parent="277" name="id">
       <DataType>integer|0s</DataType>
       <DefaultExpression>nextval(&apos;customers_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4899,28 +4934,28 @@ false posixrules
       <StateNumber>8049</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="278" parent="276" name="first_name">
+    <column id="283" parent="277" name="first_name">
       <DataType>varchar(100)|0s</DataType>
       <DefaultExpression>NULL::character varying</DefaultExpression>
       <Position>2</Position>
       <StateNumber>8049</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="279" parent="276" name="last_name">
+    <column id="284" parent="277" name="last_name">
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>8049</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="280" parent="276" name="email">
+    <column id="285" parent="277" name="email">
       <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>8049</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="281" parent="276" name="customers_pkey">
+    <index id="286" parent="277" name="customers_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>40595</ObjectId>
@@ -4929,12 +4964,52 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="282" parent="276" name="customers_pkey">
+    <key id="287" parent="277" name="customers_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>40596</ObjectId>
       <Primary>1</Primary>
       <StateNumber>8049</StateNumber>
       <UnderlyingIndexId>40595</UnderlyingIndexId>
+    </key>
+    <column id="288" parent="278" name="username">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>8577</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="289" parent="278" name="password">
+      <DataType>varchar(68)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>8577</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="290" parent="278" name="enabled">
+      <DataType>boolean|0s</DataType>
+      <DefaultExpression>true</DefaultExpression>
+      <Position>3</Position>
+      <StateNumber>8577</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <index id="291" parent="278" name="users_pkey">
+      <ColNames>username</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>49187</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>8577</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <key id="292" parent="278" name="users_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>49188</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>8577</StateNumber>
+      <UnderlyingIndexId>49187</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

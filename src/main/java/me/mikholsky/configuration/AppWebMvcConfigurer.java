@@ -21,6 +21,7 @@ import org.thymeleaf.templatemode.TemplateMode;
 import javax.sql.DataSource;
 import java.util.Objects;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 @Configuration
 @EnableWebMvc
@@ -32,6 +33,8 @@ public class AppWebMvcConfigurer implements WebMvcConfigurer, EnvironmentAware, 
 	private ApplicationContext applicationContext;
 	private org.springframework.core.env.Environment env;
 
+	private final Logger logger = Logger.getLogger(AppWebMvcConfigurer.class.getName());
+
 	@Override
 	public void setEnvironment(@NonNull org.springframework.core.env.Environment environment) {
 		this.env = environment;
@@ -42,6 +45,7 @@ public class AppWebMvcConfigurer implements WebMvcConfigurer, EnvironmentAware, 
 		this.applicationContext = applicationContext;
 	}
 
+	/** Contains properties for customizing hibernate connection*/
 	private Properties hibernateProperties() {
 		var properties = new Properties();
 

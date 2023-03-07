@@ -13,7 +13,7 @@
 <div class="login-form">
   <p th:if="${param.failure}" style="color: red;">Invalid login or password :(</p>
   <p th:if="${param.logout}" style="color: darkorange;">You logged out. See you soon.</p>
-  <form action="#" th:action="@{/authenticate/login/process}" method="post">
+  <form action="#" th:action="@{/authenticate/process}" method="post">
     <label for="username">Username:
     </label><input type="text" id="username" name="username">
     <br><br>
