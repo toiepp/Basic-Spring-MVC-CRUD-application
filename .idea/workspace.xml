@@ -10,15 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc7e5dfe-d645-4ab5-92fa-c2d15f9bfb97" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/models/Authority.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/repositories/UserDetailsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/services/UserDetailsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/78a8a52a-43e1-43d2-be67-90d6da7c4a64.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/78a8a52a-43e1-43d2-be67-90d6da7c4a64.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/78a8a52a-43e1-43d2-be67-90d6da7c4a64/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/78a8a52a-43e1-43d2-be67-90d6da7c4a64/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/configuration/security/WebSecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/configuration/security/WebSecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/controllers/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/controllers/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/controllers/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/services/UserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/services/UserDetailsService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -377,7 +375,7 @@
       <workItem from="1677857067102" duration="10000" />
       <workItem from="1678021949479" duration="236000" />
       <workItem from="1678030597472" duration="8065000" />
-      <workItem from="1678103751085" duration="24085000" />
+      <workItem from="1678103751085" duration="25441000" />
     </task>
     <servers />
   </component>

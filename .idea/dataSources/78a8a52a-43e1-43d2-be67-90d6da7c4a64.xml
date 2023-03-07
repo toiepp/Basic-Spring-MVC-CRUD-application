@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.43">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>8610</IntrospectionStateNumber>
+      <IntrospectionStateNumber>8631</IntrospectionStateNumber>
       <ServerVersion>14.2</ServerVersion>
       <StartupTime>1677488815</StartupTime>
       <TimeZones>true ACDT
@@ -1429,7 +1429,7 @@ false posixrules
 14394||10|C|G
 14394||-9223372036854775808|U|G
 14394||10|U|G</Grants>
-      <IntrospectionStateNumber>8610</IntrospectionStateNumber>
+      <IntrospectionStateNumber>8631</IntrospectionStateNumber>
       <ObjectId>14760</ObjectId>
       <Relations>sequence|table|40589|40590|1
 </Relations>
@@ -4874,7 +4874,7 @@ false posixrules
     <schema id="274" parent="10" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>8610</IntrospectionStateNumber>
+      <IntrospectionStateNumber>8631</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>527</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -4886,8 +4886,8 @@ false posixrules
       <OwnerName>mikholskiy</OwnerName>
     </sequence>
     <table id="276" parent="274" name="authorities">
-      <ObjectId>49228</ObjectId>
-      <StateNumber>8606</StateNumber>
+      <ObjectId>49276</ObjectId>
+      <StateNumber>8627</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>mikholskiy</OwnerName>
     </table>
@@ -4898,14 +4898,14 @@ false posixrules
       <OwnerName>mikholskiy</OwnerName>
     </table>
     <table id="278" parent="274" name="users">
-      <ObjectId>49222</ObjectId>
-      <StateNumber>8606</StateNumber>
+      <ObjectId>49270</ObjectId>
+      <StateNumber>8627</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>mikholskiy</OwnerName>
     </table>
     <table id="279" parent="274" name="users_authorities">
-      <ObjectId>49233</ObjectId>
-      <StateNumber>8606</StateNumber>
+      <ObjectId>49281</ObjectId>
+      <StateNumber>8627</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>mikholskiy</OwnerName>
     </table>
@@ -4913,15 +4913,15 @@ false posixrules
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>8605</StateNumber>
+      <StateNumber>8626</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="281" parent="276" name="authorities_pkey">
       <ColNames>authority</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>49231</ObjectId>
+      <ObjectId>49279</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>8605</StateNumber>
+      <StateNumber>8626</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
@@ -4930,10 +4930,10 @@ false posixrules
     </index>
     <key id="282" parent="276" name="authorities_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>49232</ObjectId>
+      <ObjectId>49280</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>8605</StateNumber>
-      <UnderlyingIndexId>49231</UnderlyingIndexId>
+      <StateNumber>8626</StateNumber>
+      <UnderlyingIndexId>49279</UnderlyingIndexId>
     </key>
     <column id="283" parent="277" name="id">
       <DataType>integer|0s</DataType>
@@ -4984,29 +4984,29 @@ false posixrules
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>8604</StateNumber>
+      <StateNumber>8625</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="290" parent="278" name="password">
       <DataType>varchar(68)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>8604</StateNumber>
+      <StateNumber>8625</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="291" parent="278" name="enabled">
       <DataType>boolean|0s</DataType>
       <DefaultExpression>true</DefaultExpression>
       <Position>3</Position>
-      <StateNumber>8604</StateNumber>
+      <StateNumber>8625</StateNumber>
       <TypeId>16</TypeId>
     </column>
     <index id="292" parent="278" name="users_pkey">
       <ColNames>username</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>49226</ObjectId>
+      <ObjectId>49274</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>8604</StateNumber>
+      <StateNumber>8625</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
@@ -5015,42 +5015,42 @@ false posixrules
     </index>
     <key id="293" parent="278" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>49227</ObjectId>
+      <ObjectId>49275</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>8604</StateNumber>
-      <UnderlyingIndexId>49226</UnderlyingIndexId>
+      <StateNumber>8625</StateNumber>
+      <UnderlyingIndexId>49274</UnderlyingIndexId>
     </key>
     <column id="294" parent="279" name="username_ref">
       <DataType>varchar(50)|0s</DataType>
       <Position>1</Position>
-      <StateNumber>8606</StateNumber>
+      <StateNumber>8627</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="295" parent="279" name="authority_ref">
       <DataType>varchar(50)|0s</DataType>
       <Position>2</Position>
-      <StateNumber>8606</StateNumber>
+      <StateNumber>8627</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <foreign-key id="296" parent="279" name="users_authorities_username_ref_fkey">
       <ColNames>username_ref</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>49236</ObjectId>
+      <ObjectId>49284</ObjectId>
       <RefColNames>username</RefColNames>
       <RefColPositions>1</RefColPositions>
-      <StateNumber>8606</StateNumber>
-      <RefTableId>49222</RefTableId>
+      <StateNumber>8627</StateNumber>
+      <RefTableId>49270</RefTableId>
       <RefTableName>users</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <foreign-key id="297" parent="279" name="users_authorities_authority_ref_fkey">
       <ColNames>authority_ref</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>49241</ObjectId>
+      <ObjectId>49289</ObjectId>
       <RefColNames>authority</RefColNames>
       <RefColPositions>1</RefColPositions>
-      <StateNumber>8606</StateNumber>
-      <RefTableId>49228</RefTableId>
+      <StateNumber>8627</StateNumber>
+      <RefTableId>49276</RefTableId>
       <RefTableName>authorities</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>

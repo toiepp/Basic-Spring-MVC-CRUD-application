@@ -28,21 +28,6 @@ public class WebSecurityConfiguration {
 				environment.getProperty("spring.security.bcrypt.strength", Integer.class)));
 	}
 
-//	@Bean
-//	public UserDetailsManager jdbcUserDetails() {
-//		var jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
-//
-//		jdbcUserDetailsManager
-//			.createUser(User.builder()
-//							.passwordEncoder(passwordEncoder()::encode)
-//							.username("admin")
-//							.password("admin1")
-//							.roles("ADMIN", "MANAGER", "EMPLOYEE")
-//							.build());
-//
-//		return new JdbcUserDetailsManager(dataSource);
-//	}
-
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests()

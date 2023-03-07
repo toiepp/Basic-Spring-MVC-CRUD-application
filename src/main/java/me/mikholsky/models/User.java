@@ -39,14 +39,30 @@ public class User implements UserDetails {
 		return username;
 	}
 
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 	@Override
 	public String getPassword() {
 		return password;
 	}
 
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Override
 	public boolean isEnabled() {
 		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public void addAuthority(Authority authority) {
+		authorities.add(authority);
 	}
 
 	@Override
