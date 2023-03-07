@@ -6,26 +6,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
-import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-import javax.sql.DataSource;
 import java.util.Objects;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfiguration {
-	private DataSource dataSource;
-
 	private Environment environment;
-
-	@Autowired
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-	}
 
 	@Autowired
 	public void setEnvironment(Environment environment) {
@@ -39,20 +28,20 @@ public class WebSecurityConfiguration {
 				environment.getProperty("spring.security.bcrypt.strength", Integer.class)));
 	}
 
-	@Bean
-	public UserDetailsManager jdbcUserDetails() {
-		var jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
-
-		jdbcUserDetailsManager
-			.createUser(User.builder()
-							.passwordEncoder(passwordEncoder()::encode)
-							.username("admin")
-							.password("admin1")
-							.roles("ADMIN", "MANAGER", "EMPLOYEE")
-							.build());
-
-		return new JdbcUserDetailsManager(dataSource);
-	}
+//	@Bean
+//	public UserDetailsManager jdbcUserDetails() {
+//		var jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
+//
+//		jdbcUserDetailsManager
+//			.createUser(User.builder()
+//							.passwordEncoder(passwordEncoder()::encode)
+//							.username("admin")
+//							.password("admin1")
+//							.roles("ADMIN", "MANAGER", "EMPLOYEE")
+//							.build());
+//
+//		return new JdbcUserDetailsManager(dataSource);
+//	}
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
