@@ -4,11 +4,12 @@ import jakarta.transaction.Transactional;
 import me.mikholsky.models.User;
 import me.mikholsky.repositories.UserDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
 	private UserDetailsRepository userDetailsRepository;
 
 	@Autowired

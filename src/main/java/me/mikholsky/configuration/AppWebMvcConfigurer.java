@@ -26,7 +26,9 @@ import java.util.logging.Logger;
 @Configuration
 @EnableWebMvc
 @EnableAspectJAutoProxy
-@EnableTransactionManagement
+/*указал proxyTargetClass=true т.к. спринг не мог заинжектить сервисы из-за Bean named 'userDetailsServiceImpl'
+is expected to be of type 'me.mikholsky.services.UserDetailsServiceImpl' but was actually of type 'jdk.proxy3.$Proxy89'*/
+@EnableTransactionManagement(proxyTargetClass = true)
 @ComponentScan("me.mikholsky")
 @PropertySource({"classpath:application.properties"})
 public class AppWebMvcConfigurer implements WebMvcConfigurer, EnvironmentAware, ApplicationContextAware {

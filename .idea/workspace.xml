@@ -10,13 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc7e5dfe-d645-4ab5-92fa-c2d15f9bfb97" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration-page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/78a8a52a-43e1-43d2-be67-90d6da7c4a64.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/78a8a52a-43e1-43d2-be67-90d6da7c4a64.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/78a8a52a-43e1-43d2-be67-90d6da7c4a64/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/78a8a52a-43e1-43d2-be67-90d6da7c4a64/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/configuration/AppWebMvcConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/configuration/AppWebMvcConfigurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/configuration/security/WebSecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/configuration/security/WebSecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/controllers/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/controllers/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/controllers/CustomerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/services/UserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/services/UserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/repositories/UserDetailsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/repositories/UserDetailsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mikholsky/services/UserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mikholsky/services/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login-page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,8 +67,8 @@
       <list>
         <option value="CSS File" />
         <option value="AnnotationType" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -166,7 +169,7 @@
       </method>
     </configuration>
     <configuration name="Tomcat 10.0.27" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.27" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
+      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="Gradle : me.mikholsky : spring-mvc-crud-app-gradle-1.0-SNAPSHOT.war">
           <settings>
@@ -175,7 +178,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="6c4db9ff-505c-4f0e-a3d6-7818d2d08149" />
+        <option name="BASE_DIRECTORY_NAME" value="820cf490-b141-4b61-a124-0376c587b46b" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -183,7 +186,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="38927" />
+        <option name="DEBUG_PORT" value="41413" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -375,7 +378,10 @@
       <workItem from="1677857067102" duration="10000" />
       <workItem from="1678021949479" duration="236000" />
       <workItem from="1678030597472" duration="8065000" />
-      <workItem from="1678103751085" duration="25441000" />
+      <workItem from="1678103751085" duration="29684000" />
+      <workItem from="1678200441748" duration="104000" />
+      <workItem from="1678436940647" duration="19000" />
+      <workItem from="1678681275476" duration="46000" />
     </task>
     <servers />
   </component>

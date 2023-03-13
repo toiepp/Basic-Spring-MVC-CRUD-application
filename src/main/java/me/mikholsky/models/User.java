@@ -12,7 +12,6 @@ import java.util.List;
 @Table(name = "users")
 public class User implements UserDetails {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "username")
 	private String username;
 
@@ -20,7 +19,7 @@ public class User implements UserDetails {
 	private String password;
 
 	@Column(name = "enabled")
-	private Boolean enabled;
+	private Boolean enabled = true;
 
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE},
 				fetch = FetchType.EAGER)
