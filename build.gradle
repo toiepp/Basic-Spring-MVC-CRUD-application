@@ -11,7 +11,7 @@ repositories {
 }
 
 javadoc {
-    destinationDir = file("${buildDir}/docs/javadoc")
+    destinationDir = file("src/main/webapp/docs/javadoc")
 }
 
 dependencies {
