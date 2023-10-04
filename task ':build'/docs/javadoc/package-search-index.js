@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"me.mikholsky.aspects"},{"l":"me.mikholsky.configuration"},{"l":"me.mikholsky.configuration.security"},{"l":"me.mikholsky.controllers"},{"l":"me.mikholsky.models"},{"l":"me.mikholsky.repositories"},{"l":"me.mikholsky.services"},{"l":"me.mikholsky.validation.required"}];updateSearchResults();

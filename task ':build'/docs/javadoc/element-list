@@ -1,8 +1,0 @@
-me.mikholsky.aspects
-me.mikholsky.configuration
-me.mikholsky.configuration.security
-me.mikholsky.controllers
-me.mikholsky.models
-me.mikholsky.repositories
-me.mikholsky.services
-me.mikholsky.validation.required
